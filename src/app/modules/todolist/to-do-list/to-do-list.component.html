@@ -1,0 +1,23 @@
+<div class="container-todo">
+  <div class="full-card">
+    <div class="title">
+      <p>My to-do list</p>
+    </div>
+    <div class="card">
+     <ul>
+      <li *ngFor="let item of listaAtividade; let i = index">
+        <input type="checkbox" [(ngModel)]="item.check">
+        <input type="text" [(ngModel)]="item.atividade" [ngClass]="{'check': item.check}">
+        <i class="pi pi-trash" (click)="deleteItem(i)"></i>
+      </li>
+     </ul>
+    </div>
+    <input type="text" class="input" [(ngModel)]="atividade" (keyup.enter)="setAtividade($event)"
+      placeholder="Digite a sua nova Task aqui...">
+      <div class="delete-button-all">
+        <div class="button-delete-all" (click)="deleteAll()">
+          <p class="text-button">Deletar Todos</p>
+        </div>
+      </div>
+  </div>
+</div>
